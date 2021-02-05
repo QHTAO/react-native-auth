@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Home as HomeScreen, Login as LoginScreen } from "../pages";
+
+import RegisterScreen from "../pages/Register";
+
 import AuthStorage from "../utils/authStorage";
 import { connect } from "react-redux";
 import { login } from "../actions/auth";
@@ -9,7 +12,7 @@ const Stack = createStackNavigator();
 
 const screenOptions = {
   headerShown: false,
-  cardStyle: { backgroundColor: "transparent" },
+  cardStyle: { backgroundColor: "#FFFFFF" },
 };
 
 function AppNavigation() {
@@ -23,6 +26,7 @@ function AuthNavigation() {
   return (
     <Stack.Navigator initialRouteName="Login" screenOptions={screenOptions}>
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }
