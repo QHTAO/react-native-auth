@@ -9,7 +9,9 @@ export class Register extends Component {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={globalStyles.container}>
-          <Text h1>Register</Text>
+          <View style={styles.header}>
+            <Text h1>Register</Text>
+          </View>
           <View style={globalStyles.form}>
             <Input placeholder="username" placeholderTextColor="#000000" />
             <Input placeholder="email" placeholderTextColor="#000000" />
