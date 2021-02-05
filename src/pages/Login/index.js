@@ -9,7 +9,12 @@ class Login extends Component {
     return (
       <SafeAreaView>
         <Text style={{ fontSize: 100 }}> Login </Text>
-        <Button onPress={() => this.props.login()} title="登录" />
+        <Button
+          onPress={() =>
+            this.props.login({ username: "username", password: "password" })
+          }
+          title="登录"
+        />
       </SafeAreaView>
     );
   }
@@ -19,8 +24,8 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    login: () => {
-      dispatch(login());
+    login: (data) => {
+      dispatch(login(data));
     },
   };
 };
