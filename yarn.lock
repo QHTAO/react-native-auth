@@ -5422,6 +5422,13 @@ react-is@^17.0.1:
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-17.0.1.tgz?cache=0&sync_timestamp=1610380937362&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-is%2Fdownload%2Freact-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha1-WzUxvXamRaTJ+25pPtNkGeMwEzk=
 
+react-native-easy-grid@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.npm.taobao.org/react-native-easy-grid/download/react-native-easy-grid-0.2.2.tgz#f0be33620be1ebe2d2295918eb58b0a27e8272ab"
+  integrity sha1-8L4zYgvh6+LSKVkY61iwon6Ccqs=
+  dependencies:
+    lodash "^4.17.15"
+
 react-native-elements@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/react-native-elements/download/react-native-elements-3.1.0.tgz#ff2d6fd0ed91b1ebdd15598c4da1fcb2d5780c5f"

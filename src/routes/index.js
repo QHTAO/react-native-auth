@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Home as HomeScreen, Login as LoginScreen } from "../pages";
+import { SafeAreaView } from "react-native";
 
 import RegisterScreen from "../pages/Register";
 
