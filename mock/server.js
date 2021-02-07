@@ -1,15 +1,22 @@
-const Koa = require("koa");
-const Router = require("koa-router");
+const koa = require("koa");
+const bodyparser = require("koa-bodyparser");
+const app = new koa();
 
-const app = new Koa();
-const router = new Router();
+const router = require("koa-router")();
 router.get("/", function (ctx, next) {
+  ctx.body = {};
+});
+
+router.post("/auth/local", async (ctx) => {
   ctx.body = {
-    api: "v.01",
-    data: [],
+    data: {
+      token: "saf34@%^ak##$^&4363$634@%^akogj636;irfh",
+    },
   };
 });
-app.use(router.routes()).use(router.allowedMethods());
+app.use(bodyparser());
+app.use(router.routes(), router.allowedMethods());
+
 app.listen(3000, function () {
   console.log("server is running at http://localhost:3000/");
 });

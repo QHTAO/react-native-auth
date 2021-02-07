@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { SafeAreaView, View } from "react-native";
 import { connect } from "react-redux";
-import { login } from "../../actions/auth";
+import { loginService } from "../../actions/auth";
 import { Text, Input, Button } from "react-native-elements";
-import { Col, Row, Grid } from "react-native-easy-grid";
 import { Formik } from "formik";
 
 import styles from "./styles";
@@ -14,7 +13,7 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(values) {
-    this.props.login(values);
+    this.props.loginService(values);
   }
   render() {
     return (
@@ -62,8 +61,8 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    login: (data) => {
-      dispatch(login(data));
+    loginService: (data) => {
+      dispatch(loginService(data));
     },
   };
 };

@@ -8,7 +8,7 @@ import RegisterScreen from "../pages/Register";
 
 import AuthStorage from "../utils/authStorage";
 import { connect } from "react-redux";
-import { login } from "../actions/auth";
+import { loginApp } from "../actions/auth";
 const Stack = createStackNavigator();
 
 const screenOptions = {
@@ -41,10 +41,10 @@ class RootNavigation extends Component {
     const storage = new AuthStorage();
     const token = await storage.getAccessToken();
     if (!!token) {
-      console.log("has token:", token);
-      this.props.login();
+      console.log("App Has Token:", token);
+      this.props.loginApp();
     } else {
-      console.log("no token!");
+      console.log("App No Token!");
     }
   }
   render() {
@@ -63,8 +63,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    login: () => {
-      dispatch(login());
+    loginApp: () => {
+      dispatch(loginApp());
     },
   };
 };

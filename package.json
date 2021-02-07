@@ -19,6 +19,7 @@
     "expo-status-bar": "~1.0.3",
     "formik": "^2.2.6",
     "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",

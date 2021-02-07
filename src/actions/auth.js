@@ -1,6 +1,8 @@
 import AuthStorage from "../utils/authStorage";
 import request, { setClientToken } from "../utils/request";
-export const LOGIN = "LOGIN";
+
+import { loginService as loginServiceApp } from "../utils/api";
+export const LOGIN_APP = "LOGIN_APP";
 export const LOGOUT = "LOGOUT";
 export const storage = new AuthStorage();
 
@@ -11,21 +13,16 @@ export function logout() {
   };
 }
 
-export const login = ({ username, password }) => {
+export const loginService = ({ username, password }) => {
   return async (dispatch) => {
-    console.log({ username, password });
-    // request
-    //   .post("/auth/local/register", { username, password })
-    //   .then(function (result) {
     //     //1.设置http:token,
     //     //2.将token存储到本地
     //     //3.更新redux中的登录状态
-    //     setClientToken(result.token);
-    //     storage.setAccessToken("myToken");
-    //     dispatch({ type: LOGIN });
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    const res = await loginServiceApp({ username, password });
+    setClientToken(res.data.token);
+    storage.setAccessToken(res.data.token);
+    dispatch(loginApp());
   };
 };
+
+export const loginApp = () => ({ type: LOGIN_APP });

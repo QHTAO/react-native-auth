@@ -1,12 +1,12 @@
 import axios from "axios";
 
 let request = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://192.168.12.150:3000/",
   timeout: 10000,
 });
 
 export const setClientToken = (token) => {
-  APIKit.interceptors.request.use(function (config) {
+  request.interceptors.request.use(function (config) {
     config.headers.Authorization = `Bearer ${token}`;
     return config;
   });
