@@ -10,7 +10,7 @@ router.get("/", function (ctx, next) {
 router.post("/auth/local", async (ctx) => {
   ctx.body = {
     data: {
-      token: "saf34@%^ak##$^&4363$634@%^akogj636;irfh",
+      token: "saf3agfdsagfre#$agfdsag63gfre#$^&436gfh",
     },
   };
 });

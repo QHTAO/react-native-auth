@@ -21,8 +21,8 @@ export const loginService = ({ username, password }) => {
     const res = await loginServiceApp({ username, password });
     setClientToken(res.data.token);
     storage.setAccessToken(res.data.token);
-    dispatch(loginApp());
+    dispatch(loginApp(res.data.token));
   };
 };
 
-export const loginApp = () => ({ type: LOGIN_APP });
+export const loginApp = (token) => ({ type: LOGIN_APP, token });

@@ -2,7 +2,7 @@ import { LOGIN_APP, LOGOUT } from "../actions/auth";
 function auth(state = {}, action) {
   switch (action.type) {
     case LOGIN_APP:
-      return Object.assign({}, state, { isAuth: true });
+      return Object.assign({}, state, { isAuth: true, token: action.token });
     case LOGOUT:
       return Object.assign({}, state, { isAuth: false });
     default:

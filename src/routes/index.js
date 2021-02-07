@@ -42,7 +42,7 @@ class RootNavigation extends Component {
     const token = await storage.getAccessToken();
     if (!!token) {
       console.log("App Has Token:", token);
-      this.props.loginApp();
+      this.props.loginApp(token);
     } else {
       console.log("App No Token!");
     }
@@ -64,7 +64,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loginApp: () => {
-      dispatch(loginApp());
+      dispatch(loginApp(token));
     },
   };
 };

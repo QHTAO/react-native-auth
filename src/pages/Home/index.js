@@ -1,19 +1,28 @@
 import React, { Component } from "react";
-import { Text, View, Button, SafeAreaView } from "react-native";
+import { View } from "react-native";
 import { connect } from "react-redux";
+import { SafeAreaView } from "../../components";
 import { logout } from "../../actions/auth";
+import { Text, Button } from "react-native-elements";
+import globalStyles from "../../styles";
+
 class Home extends Component {
   render() {
     return (
       <SafeAreaView>
-        <Text style={{ fontSize: 100 }}> Home </Text>
-        <Button onPress={() => this.props.logout()} title="退出" />
+        <View style={globalStyles.container}>
+          <Text h1> Home </Text>
+          <Text> token: {this.props.token}</Text>
+          <Button onPress={() => this.props.logout()} title="退出" />
+        </View>
       </SafeAreaView>
     );
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
