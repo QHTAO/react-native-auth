@@ -4,9 +4,18 @@ import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 import { Text, Input, Button } from "react-native-elements";
 import { Col, Row, Grid } from "react-native-easy-grid";
+import { Formik } from "formik";
 
 import styles from "./styles";
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(values) {
+    this.props.login(values);
+  }
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -15,17 +24,26 @@ class Login extends Component {
             <Text h1> Login </Text>
           </View>
 
-          <Input placeholder="username" placeholderTextColor="#000000" />
-          <Input placeholder="password" placeholderTextColor="#000000" />
-          <Button
-            onPress={() =>
-              this.props.login({
-                username: "username",
-                password: "password",
-              })
-            }
-            title="登录"
-          />
+          <Formik
+            initialValues={{ username: "", password: "" }}
+            onSubmit={this.handleSubmit}
+          >
+            {({ handleChange, handleBlur, handleSubmit, values }) => (
+              <View>
+                <Input
+                  placeholder="username"
+                  onChangeText={handleChange("username")}
+                  placeholderTextColor="#000000"
+                />
+                <Input
+                  placeholder="password"
+                  onChangeText={handleChange("password")}
+                  placeholderTextColor="#000000"
+                />
+                <Button onPress={handleSubmit} title="登录" />
+              </View>
+            )}
+          </Formik>
 
           <View style={styles.footer}>
             <Button

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let request = axios.create({
-  baseURL: "https://app.example.se",
+  baseURL: "http://localhost:3000",
   timeout: 10000,
 });
 

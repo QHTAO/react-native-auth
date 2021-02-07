@@ -13,18 +13,19 @@ export function logout() {
 
 export const login = ({ username, password }) => {
   return async (dispatch) => {
-    request
-      .post("/auth/local/register", { username, password })
-      .then(function (result) {
-        //1.设置http:token,
-        //2.将token存储到本地
-        //3.更新redux中的登录状态
-        setClientToken(result.token);
-        storage.setAccessToken("myToken");
-        dispatch({ type: LOGIN });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    console.log({ username, password });
+    // request
+    //   .post("/auth/local/register", { username, password })
+    //   .then(function (result) {
+    //     //1.设置http:token,
+    //     //2.将token存储到本地
+    //     //3.更新redux中的登录状态
+    //     setClientToken(result.token);
+    //     storage.setAccessToken("myToken");
+    //     dispatch({ type: LOGIN });
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   };
 };
